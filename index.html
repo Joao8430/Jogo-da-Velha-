@@ -1,0 +1,29 @@
+<!--HTML é a casinha onde o jogo vai morar-->
+<!DOCTYPE html>
+<html lang="PT-BR"> <!-- Define o idioma do documento -->
+<head>
+    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres do documento -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Define a largura da tela do dispositivo -->
+    <title>JOGO DA VELHA</title> <!-- Cabeçalho do documento --> 
+    <link rel="stylesheet" href="style.css"> <!--Implementar o CSS no corpo da página-->
+</head>
+<body>
+    <h1>JOGO DA VELHA</h1>  <!--Título do jogo--> 
+        <div class="game-board"> <!--Exemplo de célula-->
+            <button class="cell" data-index="0" aria-label="Célula 1"></button> <!--Botão da célula-->
+            <button class="cell" data-index="1" aria-label="Célula 2"></button> <!--Botão da célula-->
+            <button class="cell" data-index="2" aria-label="Célula 3"></button> <!--Botão da célula-->
+            <button class="cell" data-index="3" aria-label="Célula 4"></button> <!--Botão da célula-->
+            <button class="cell" data-index="4" aria-label="Célula 5"></button> <!--Botão da célula-->
+            <button class="cell" data-index="5" aria-label="Célula 6"></button> <!--Botão da célula-->
+            <button class="cell" data-index="6" aria-label="Célula 7"></button> <!--Botão da célula-->
+            <button class="cell" data-index="7" aria-label="Célula 8"></button> <!--Botão da célula-->
+            <button class="cell" data-index="8" aria-label="Célula 9"></button> <!--Botão da célula-->
+        </div> <!--Fechamento da div class="game-board"-->
+
+        <div id="message">Vez do jogador</div> <!--Mensagem de vez do jogador-->
+        <button class="restart-button">Reiniciar</button> <!--Botão de reiniciar-->
+
+    <script src="script.js"></script> <!--Implementar o JavaScript no corpo da página-->
+</body>
+</html> 

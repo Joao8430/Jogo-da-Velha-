@@ -1,0 +1,271 @@
+/* 
+    ===========================================
+    JOGO DA VELHA - ESTILOS CSS
+    ===========================================
+    O CSS é responsável pela aparência visual do jogo.
+    É como a "roupa" da página - define cores, tamanhos, posições e animações.
+    Sem CSS, a página seria apenas texto preto em fundo branco!
+*/
+
+/* 
+    ===========================================
+    CONFIGURAÇÕES GERAIS DA PÁGINA
+    ===========================================
+    Define o estilo base da página inteira.
+*/
+body {
+    /* 
+        ===========================================
+        IMAGEM DE FUNDO
+        ===========================================
+        Configurações para a imagem de fundo do jogo.
+    */
+    background-image: url("img.jpg"); /* Caminho para a imagem de fundo */
+    background-size: cover; /* A imagem cobre toda a tela, mantendo proporção */
+    background-position: center; /* Centraliza a imagem na tela */
+    background-repeat: no-repeat; /* Não repete a imagem (evita mosaico) */
+    background-attachment: fixed; /* Fixa a imagem (não rola com o conteúdo) */
+    background-color: #b79c9c; /* Cor de fallback caso a imagem não carregue */
+    
+    /* 
+        ===========================================
+        TIPOGRAFIA E CORES
+        ===========================================
+        Define como o texto aparece na página.
+    */
+    color: #fff; /* Cor do texto: branco */
+    font-family: Arial, sans-serif; /* Fonte: Arial, com fallback para sans-serif */
+    
+    /* 
+        ===========================================
+        LAYOUT E POSICIONAMENTO
+        ===========================================
+        Remove margens padrão e centraliza o conteúdo.
+    */
+    margin: 0; /* Remove margem padrão do navegador */
+    padding: 0; /* Remove padding padrão do navegador */
+    display: flex; /* Ativa o Flexbox para layout flexível */
+    flex-direction: column; /* Organiza elementos em coluna (vertical) */
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    
+    /* 
+        ===========================================
+        DIMENSÕES DA TELA
+        ===========================================
+        Faz a página ocupar toda a tela do navegador.
+    */
+    height: 100vh; /* Altura: 100% da altura da tela (viewport height) */
+    width: 100vw; /* Largura: 100% da largura da tela (viewport width) */
+}
+
+/* 
+    ===========================================
+    TABULEIRO DO JOGO (GRID 3x3)
+    ===========================================
+    O tabuleiro é criado usando CSS Grid, que organiza os 9 botões
+    em uma grade 3x3 de forma automática e responsiva.
+*/
+.game-board {
+    /* 
+        ===========================================
+        LAYOUT GRID
+        ===========================================
+        CSS Grid cria uma grade de células organizadas.
+    */
+    display: grid; /* Ativa o sistema de grid */
+    grid-template-columns: repeat(3, 120px); /* 3 colunas, cada uma com 120px de largura */
+    grid-template-rows: repeat(3, 120px); /* 3 linhas, cada uma com 120px de altura */
+    gap: 10px; /* Espaço de 10px entre as células */
+    
+    /* 
+        ===========================================
+        APARÊNCIA DO TABULEIRO
+        ===========================================
+        Define como o tabuleiro aparece visualmente.
+    */
+    margin-bottom: 20px; /* Espaço de 20px abaixo do tabuleiro */
+    border: 1px solid #fff; /* Borda branca de 1px ao redor do tabuleiro */
+    border-radius: 10px; /* Cantos arredondados (10px de raio) */
+    width: 360px; /* Largura total: 3 colunas × 120px + 2 gaps × 10px = 360px */
+}
+
+/* 
+    ===========================================
+    CÉLULAS DO TABULEIRO (BOTÕES)
+    ===========================================
+    Cada célula é um botão clicável que representa uma posição no tabuleiro.
+    Define como os botões aparecem e se comportam.
+*/
+.cell {
+    /* 
+        ===========================================
+        DIMENSÕES E TIPOGRAFIA
+        ===========================================
+        Define o tamanho e aparência do texto.
+    */
+    width: 120px; /* Largura: 120px (mesmo tamanho definido no grid) */
+    height: 120px; /* Altura: 120px (mesmo tamanho definido no grid) */
+    font-size: 48px; /* Tamanho da fonte: 48px (X e O grandes) */
+    font-weight: bold; /* Texto em negrito */
+    color: #fff; /* Cor do texto: branco */
+    
+    /* 
+        ===========================================
+        APARÊNCIA VISUAL
+        ===========================================
+        Define cores, bordas e efeitos visuais.
+    */
+    background: rgba(0, 0, 0, 0.6); /* Fundo preto semi-transparente (60% opacidade) */
+    border: 2px solid #fff; /* Borda branca de 2px */
+    border-radius: 10px; /* Cantos arredondados */
+    
+    /* 
+        ===========================================
+        INTERAÇÃO E COMPORTAMENTO
+        ===========================================
+        Define como o botão responde ao usuário.
+    */
+    cursor: pointer; /* Cursor vira "mão" ao passar sobre o botão */
+    transition: all 0.3s ease; /* Animação suave de 0.3s para todas as propriedades */
+    
+    /* 
+        ===========================================
+        ALINHAMENTO DO CONTEÚDO
+        ===========================================
+        Centraliza o X ou O dentro do botão.
+    */
+    display: flex; /* Ativa o Flexbox */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+}
+
+/* 
+    ===========================================
+    EFEITO HOVER (QUANDO PASSA O MOUSE)
+    ===========================================
+    Define o que acontece quando o usuário passa o mouse sobre a célula.
+*/
+.cell:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fundo branco semi-transparente */
+    transform: scale(1.05); /* Aumenta o tamanho em 5% */
+}
+
+/* 
+    ===========================================
+    CÉLULAS DESABILITADAS
+    ===========================================
+    Define como aparecem as células que já foram jogadas.
+*/
+.cell:disabled {
+    cursor: not-allowed; /* Cursor vira "proibido" */
+    opacity: 0.7; /* Reduz a opacidade para 70% (mais transparente) */
+}
+
+/* 
+    ===========================================
+    ESTILOS ESPECÍFICOS DOS JOGADORES
+    ===========================================
+    Define cores diferentes para X e O, facilitando a identificação.
+*/
+
+/* 
+    ===========================================
+    JOGADOR X - COR VERMELHA
+    ===========================================
+    Quando uma célula contém 'X', aplica este estilo.
+*/
+.cell.x {
+    color: #ff6b6b; /* Cor vermelha para o X */
+    text-shadow: 0 0 10px rgba(255, 107, 107, 0.5); /* Sombra vermelha brilhante */
+}
+
+/* 
+    ===========================================
+    JOGADOR O - COR AZUL/CIANO
+    ===========================================
+    Quando uma célula contém 'O', aplica este estilo.
+*/
+.cell.o {
+    color: #4ecdc4; /* Cor azul/ciano para o O */
+    text-shadow: 0 0 10px rgba(78, 205, 196, 0.5); /* Sombra azul brilhante */
+}
+
+/* Botão de reiniciar */
+.restart-button { /* Corpo do botão de clicar */
+    background-color: #ff6b6b; /* Cor do botão de clicar */ 
+    color: white; /* Cor do Reiniciar em Branco */
+    border: none;  
+    padding: 15px 30px; 
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.restart-button:hover { /* Botão restart */
+    background-color: #ff5252; 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+/* Mensagem do jogo */
+#message {
+    font-size: 24px; 
+    font-weight: bold;
+    margin: 20px 0;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    min-height: 30px;
+}
+
+/* Título do jogo */
+h1 { /* Tamanho do titulo do jogo*/ 
+    font-size: 48px; 
+    margin-bottom: 30px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* Responsividade para celulares */
+@media (max-width: 480px) {
+    .game-board {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+        gap: 5px;
+        width: 250px;
+    }
+    
+    .cell {
+        width: 80px;
+        height: 80px;
+        font-size: 32px;
+    }
+    
+    h1 {
+        font-size: 32px;
+    }
+    
+    #message {
+        font-size: 18px; /* Tamanho da menssagem que deve aparecer*/
+    }
+    
+    .restart-button {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+}
+
+/* Animação de vitória */
+.winning-cell {
+    animation: pulse 0.6s ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
